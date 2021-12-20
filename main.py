@@ -171,7 +171,9 @@ target = st.selectbox(
     '対象',
     dict_values[kind_selected]
 )
-
+test_button = st.button('test')
+if test_button:
+    st.write('クリップボード:', pyperclip.paste())
 start_button = st.button('開始')
 
 if start_button:
