@@ -4,8 +4,7 @@ import pyperclip
 import streamlit as st
 import subprocess
 
-subprocess.call("apt-get install -y sudo", shell=True)
-subprocess.call("sudo apt-get install xclip", shell=True)
+
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -158,7 +157,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                pyperclip.copy(raid_id)
+                subprocess.call("clip raid_id", shell=True)
                 st.write(raid_id)
                 print(raid_id)
 
