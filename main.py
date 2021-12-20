@@ -1,7 +1,6 @@
 import requests
 import json
-import threading
-import pyperclip
+import xerox
 import streamlit as st
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
@@ -155,7 +154,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                pyperclip.copy(raid_id)
+                xerox.copy(raid_id)
                 st.write(raid_id)
                 print(raid_id)
 
