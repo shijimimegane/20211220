@@ -4,6 +4,7 @@ import pyperclip
 import streamlit as st
 import subprocess
 
+subprocess.call("apt-get install -y sudo", shell=True)
 subprocess.call("sudo apt-get install xclip", shell=True)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
