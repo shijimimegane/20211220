@@ -3,6 +3,8 @@ import json
 import pyperclip
 import streamlit as st
 
+!sudo apt-get install xclip
+
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
   'Lv70 リヴァイアサン・マグナ',
