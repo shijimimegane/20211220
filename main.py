@@ -2,8 +2,9 @@ import requests
 import json
 import pyperclip
 import streamlit as st
+import subprocess
 
-sudo apt-get install xclip
+subprocess.call("sudo apt-get install xclip", shell=True)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
