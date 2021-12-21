@@ -1,6 +1,7 @@
 import requests
 import json
 import streamlit as st
+import pandas as pd
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -135,6 +136,7 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
+        df = pd.DataFrame()
         response = requests.get(
             "https://api.twitter.com/2/tweets/search/stream",
             auth=self.bearer_oauth, stream=True,
@@ -153,7 +155,8 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                st.session_state.id_list.append(raid_id)
+                df.append(raid_id)
+                st.write(df)
                 print(raid_id)
 
 listener = Stream_Listener_V2()
@@ -174,6 +177,4 @@ start_button = st.button('開始')
 
 if start_button:
     listener.set_rule(target)
-    st.session_state.id_list = []
-    st.write('id:',st.session_state.id_list) 
     listener.get_stream()
