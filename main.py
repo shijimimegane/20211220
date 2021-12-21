@@ -1,10 +1,6 @@
 import requests
 import json
-import pyperclip
 import streamlit as st
-import subprocess
-
-
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -157,8 +153,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                subprocess.call("clip raid_id", shell=True)
-                st.write(raid_id)
+                st.session_state.id_list.append(raid_id)
                 print(raid_id)
 
 listener = Stream_Listener_V2()
@@ -181,4 +176,6 @@ start_button = st.button('開始')
 
 if start_button:
     listener.set_rule(target)
+    st.session_state.id_list = []
+    st.write('id:',st.session_state.id_list) 
     listener.get_stream()
