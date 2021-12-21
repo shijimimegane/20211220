@@ -155,8 +155,9 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                df.append(raid_id)
+                df.append([raid_id])
                 st.write(df)
+                df.to_clipboard()
                 print(raid_id)
 
 listener = Stream_Listener_V2()
