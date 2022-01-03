@@ -148,7 +148,7 @@ class Stream_Listener_V2(object):
                 )
             )
             
-        subprocess.run('export DISPLAY=:0.0', shell=True)
+        subprocess.run('DISPLAY=localhost:0', shell=True)
 
         for response_line in response.iter_lines():
             if response_line:
@@ -157,7 +157,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
                 st.write(raid_id)
-                subprocess.run('DISPLAY=:0|xclip -sellection c',shell=True, input=raid_id, text=True)
+                subprocess.run('xclip -sellection c',shell=True, input=raid_id, text=True)
                 #pyperclip.copy(raid_id)
 
 listener = Stream_Listener_V2()
