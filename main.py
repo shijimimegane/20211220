@@ -148,7 +148,7 @@ class Stream_Listener_V2(object):
                 )
             )
             
-        subprocess.run('echo $DISPLAY')
+        subprocess.run('$DISPLAY = 0')
 
         for response_line in response.iter_lines():
             if response_line:
