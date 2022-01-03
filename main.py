@@ -147,6 +147,8 @@ class Stream_Listener_V2(object):
                     response.status_code, response.text
                 )
             )
+            
+        subprocess.run('export DISPLAY=<x11-server-ip>:0')
 
         for response_line in response.iter_lines():
             if response_line:
