@@ -136,7 +136,6 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
-        driver = webdriver.Chrome()
         response = requests.get(
             "https://api.twitter.com/2/tweets/search/stream",
             auth=self.bearer_oauth, stream=True,
