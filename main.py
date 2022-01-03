@@ -1,7 +1,7 @@
 import requests
 import json
 import streamlit as st
-import pandas as pd
+import pyperclip
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -155,10 +155,8 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                df.append([raid_id])
-                st.write(df)
-                df.to_clipboard()
-                print(raid_id)
+                st.write(raid_id)
+                pyperclip.copy(raid_id)
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
