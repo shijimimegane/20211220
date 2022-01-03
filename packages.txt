@@ -1,3 +1,2 @@
 xsel
 xclip
-lightdm
