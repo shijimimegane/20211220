@@ -155,7 +155,8 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
                 st.write(raid_id)
-                pyperclip.copy(raid_id)
+                execute_script(navigator.clipboard.write(raid_id))
+                #pyperclip.copy(raid_id)
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
