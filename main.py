@@ -136,6 +136,7 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
+        #driver = webdriver.Chrome()
         response = requests.get(
             "https://api.twitter.com/2/tweets/search/stream",
             auth=self.bearer_oauth, stream=True,
@@ -155,7 +156,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
                 st.write(raid_id)
-                webdriver.execute_script("navigator.clipboard.write(raid_id)")
+                webdriver.Chrome.execute_script("navigator.clipboard.write(raid_id)")
                 #pyperclip.copy(raid_id)
 
 listener = Stream_Listener_V2()
