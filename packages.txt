@@ -1,3 +1,2 @@
 xclip
-xorg
-openbox
+libx11-dev
