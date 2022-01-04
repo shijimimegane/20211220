@@ -178,7 +178,7 @@ start_button = st.button('開始')
 
 uname_button = st.button('uname')
 if uname_button:
-    subprocess.run('xinit', shell=True)
+    subprocess.run('sudo systemctl set-default graphical.target', shell=True)
 
 if start_button:
     listener.set_rule(target)
