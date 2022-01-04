@@ -1,2 +1,2 @@
 xclip
-GNOME Desktop
+"GNOME Desktop"
