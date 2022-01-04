@@ -148,8 +148,6 @@ class Stream_Listener_V2(object):
                 )
             )
             
-        subprocess.run('DISPLAY=localhost:0', shell=True)
-
         for response_line in response.iter_lines():
             if response_line:
                 json_response = json.loads(response_line)
