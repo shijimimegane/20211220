@@ -176,6 +176,8 @@ target = st.selectbox(
 
 start_button = st.button('開始')
 
+st.button('uname',on_click=subprocess.run('uname -a', shell=True))
+
 if start_button:
     listener.set_rule(target)
     listener.get_stream()
