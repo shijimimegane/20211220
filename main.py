@@ -1,7 +1,7 @@
 import requests
 import json
 import streamlit as st
-import subprocess
+import pandas as pd
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -156,9 +156,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                st.write(raid_id)
-                subprocess.run('xclip -d :0 -sellection c',shell=True, input=raid_id, text=True)
-                #pyperclip.copy(raid_id)
+                st.write(pd.DataFrame(raid_id))
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
@@ -175,10 +173,6 @@ target = st.selectbox(
 )
 
 start_button = st.button('開始')
-
-uname_button = st.button('uname')
-if uname_button:
-    subprocess.run('sudo systemctl set-default graphical.target', shell=True)
 
 if start_button:
     listener.set_rule(target)
