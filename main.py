@@ -15,6 +15,12 @@ html_string = '''
 
 components.html(html_string)
 
+test_string = '''
+<script language="javascript">
+  navigator.clipboard.writeText(raid_id)
+</script>
+'''
+
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
   'Lv70 リヴァイアサン・マグナ',
@@ -167,7 +173,8 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
                 st.write(raid_id)
-                clipboard.copy(raid_id)
+                components.html(test_string)
+                
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
