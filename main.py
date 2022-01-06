@@ -16,8 +16,9 @@ html_string = '''
 components.html(html_string)
 
 test_string = '''
+<h1>.</h1>
 <script language="javascript">
-  navigator.clipboard.writeText(raid_id)
+  navigator.clipboard.writeText("id")
 </script>
 '''
 
