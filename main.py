@@ -1,6 +1,7 @@
 import requests
 import json
 import streamlit as st
+import clipboard
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -154,6 +155,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
                 st.write(raid_id)
+                clipboard.copy(raid_id)
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
