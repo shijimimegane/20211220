@@ -3,6 +3,10 @@ import json
 import streamlit as st
 import streamlit.components.v1 as components
 
+from mycomponent import mycomponent
+value = mycomponent(my_input_value="hello there")
+st.write("Received", value)
+
 html_string = '''
 <h1>HTML string in RED</h1>
 
