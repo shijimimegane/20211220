@@ -39,7 +39,7 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
-        document.execCommand("copy",myInput.value)
+        document.execCommand("copy",False,myInput.value)
       }
 
       myInput.addEventListener("change", function() {
