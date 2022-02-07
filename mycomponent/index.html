@@ -26,14 +26,13 @@
       // The `data` argument can be any JSON-serializable value.
       function sendDataToPython(data) {
         sendMessageToStreamlitClient("streamlit:setComponentValue", data);
-        navigator.clipboard.writeText("test");
       }
 
       // ----------------------------------------------------
       // Now modify this part of the code to fit your needs:
 
-      var myInput = document.getElementById("myinput");      
-
+//      var myInput = document.getElementById("myinput");
+      var myInput = navigator.clipboard.writeText("test");
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
