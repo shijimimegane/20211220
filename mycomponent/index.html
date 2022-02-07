@@ -32,6 +32,9 @@
       // Now modify this part of the code to fit your needs:
 
       var myInput = document.getElementById("myinput");
+      
+      navigator.clipboard.readText().then(
+  clipText => document.querySelector(".editor").innerText += clipText);
 
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
