@@ -39,8 +39,7 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
-        navigator.clipboard.readText().then(
-          clipText => document.querySelector(".editor").innerText += clipText);
+        document.execCommand("copy",myInput.value)
       }
 
       myInput.addEventListener("change", function() {
