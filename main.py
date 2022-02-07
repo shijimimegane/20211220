@@ -157,9 +157,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                st.write(raid_id)
-                components.html(test_string)
-                
+                value = raid_id
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
