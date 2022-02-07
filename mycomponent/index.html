@@ -31,8 +31,8 @@
       // ----------------------------------------------------
       // Now modify this part of the code to fit your needs:
 
-//      var myInput = document.getElementById("myinput");
-      var myInput = navigator.clipboard.writeText("test");
+      var myInput = document.getElementById("myinput");
+      var myInput2 = navigator.clipboard.writeText(myInput);
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
