@@ -1,30 +1,10 @@
 import requests
 import json
 import streamlit as st
-import streamlit.components.v1 as components
-
 from mycomponent import mycomponent
+
 value = mycomponent(my_input_value="hello there")
 st.write("Received", value)
-
-html_string = '''
-<h1>HTML string in RED</h1>
-
-<script language="javascript">
-  document.querySelector("h1").style.color = "red";
-  console.log("Streamlit runs JavaScript");
-  alert("Streamlit runs JavaScript");
-</script>
-'''
-
-components.html(html_string)
-
-test_string = '''
-<h1>.</h1>
-<script language="javascript">
-  navigator.clipboard.writeText("id")
-</script>
-'''
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
