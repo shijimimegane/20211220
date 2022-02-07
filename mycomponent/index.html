@@ -33,14 +33,14 @@
 
       var myInput = document.getElementById("myinput");
       
-      navigator.clipboard.readText().then(
-  clipText => document.querySelector(".editor").innerText += clipText);
 
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
+        navigator.clipboard.readText().then(
+          clipText => document.querySelector(".editor").innerText += clipText);
       }
 
       myInput.addEventListener("change", function() {
@@ -49,6 +49,7 @@
           dataType: "json",
         });
       })
+      
 
       // Hook things up!
       window.addEventListener("message", onDataFromPython);
