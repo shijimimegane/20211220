@@ -32,14 +32,14 @@
       // Now modify this part of the code to fit your needs:
 
       var myInput = document.getElementById("myinput");
-      var promise = navigator.clipboard.writeText("<empty clipboard>");
+      
       
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
-        promise;
+        
       }
       
 
@@ -48,6 +48,7 @@
           value: myInput.value,
           dataType: "json",
         });
+        navigator.clipboard.writeText("<empty clipboard>");
       })
       
 
