@@ -3,7 +3,7 @@ import json
 import streamlit as st
 from mycomponent import mycomponent
 
-value = mycomponent(my_input_value="hello there")
+value = mycomponent(my_input_valu="hello there")
 st.write("Received", value)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
