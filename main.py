@@ -1,8 +1,8 @@
 import requests
 import json
 import streamlit as st
-import aiohttp
-import asyncio
+# import aiohttp
+# import asyncio
 import threading
 from mycomponent import mycomponent
 
@@ -87,42 +87,42 @@ class Stream_Listener_V2(object):
         self.thread = threading.Thread(target=self.get_stream)
         self.thread.start()
         
-    async def reset_rules(self):
-        async with aiohttp.ClientSession(headers=self.headers) as session:
-            async with session.get(self.base_url+"/rules") as response:
-                async for line in response.content:
-                    line = json.loads(line)
+#     async def reset_rules(self):
+#         async with aiohttp.ClientSession(headers=self.headers) as session:
+#             async with session.get(self.base_url+"/rules") as response:
+#                 async for line in response.content:
+#                     line = json.loads(line)
 
-        if "data" not in line:
-            print("None")
-            return None
+#         if "data" not in line:
+#             print("None")
+#             return None
 
-        payload = {"delete": {"ids": [line["data"][0]["id"]]}}
+#         payload = {"delete": {"ids": [line["data"][0]["id"]]}}
 
-        async with aiohttp.ClientSession(headers=self.headers) as session:
-            async with session.post(self.base_url+"/rules", json=payload) as response:
-                async for line in response.content:
-                    print(line)
+#         async with aiohttp.ClientSession(headers=self.headers) as session:
+#             async with session.post(self.base_url+"/rules", json=payload) as response:
+#                 async for line in response.content:
+#                     print(line)
 
-    async def set_rule(self, item):
-        rule = [{"value": f"参戦ID {item}", "tag": "JPN"}]
-        payload = {"add": rule}
-        async with aiohttp.ClientSession(headers=self.headers) as session:
-            async with session.post(self.base_url+"/rules", json=payload) as response:
-                async for line in response.content:
-                    print(line)
+#     async def set_rule(self, item):
+#         rule = [{"value": f"参戦ID {item}", "tag": "JPN"}]
+#         payload = {"add": rule}
+#         async with aiohttp.ClientSession(headers=self.headers) as session:
+#             async with session.post(self.base_url+"/rules", json=payload) as response:
+#                 async for line in response.content:
+#                     print(line)
 
-    async def get_stream(self):
-        async with aiohttp.ClientSession(headers=self.headers) as session:
-            async with session.get(self.base_url) as response:
-                async for line in response.content:
-                    if line == b'\r\n':
-                        pass
-                    else:
-                        line = json.loads(line)["data"]["text"]
-                        marker = line.find(':参戦ID')
-                        raid_id = line[marker-9:marker-1]
-                        st.write(raid_id)
+#     async def get_stream(self):
+#         async with aiohttp.ClientSession(headers=self.headers) as session:
+#             async with session.get(self.base_url) as response:
+#                 async for line in response.content:
+#                     if line == b'\r\n':
+#                         pass
+#                     else:
+#                         line = json.loads(line)["data"]["text"]
+#                         marker = line.find(':参戦ID')
+#                         raid_id = line[marker-9:marker-1]
+#                         st.write(raid_id)
 #                         Clipboard.copy(raid_id)
 #                         self.ids.b2.text = Clipboard.paste()
 
@@ -131,82 +131,82 @@ class Stream_Listener_V2(object):
 #         rules = self.get_rules()
 #         self.delete_all_rules(rules)
 
-#     def bearer_oauth(self, r):
-#         r.headers["Authorization"] = f"Bearer {self.bearer_token}"
-#         r.headers["User-Agent"] = "v2FilteredStreamPython"
-#         return r
+    def bearer_oauth(self, r):
+        r.headers["Authorization"] = f"Bearer {self.bearer_token}"
+        r.headers["User-Agent"] = "v2FilteredStreamPython"
+        return r
 
-#     def get_rules(self):
-#         response = requests.get(
-#             "https://api.twitter.com/2/tweets/search/stream/rules",
-#             auth=self.bearer_oauth,
-#         )
-#         if response.status_code != 200:
-#             raise Exception(
-#                 "Cannot get rules (HTTP {}): {}".format(
-#                 response.status_code, response.text,
-#                 )
-#             )
-#         # print(json.dumps(response.json()))
-#         return response.json()
+    def get_rules(self):
+        response = requests.get(
+            "https://api.twitter.com/2/tweets/search/stream/rules",
+            auth=self.bearer_oauth,
+        )
+        if response.status_code != 200:
+            raise Exception(
+                "Cannot get rules (HTTP {}): {}".format(
+                response.status_code, response.text,
+                )
+            )
+        # print(json.dumps(response.json()))
+        return response.json()
 
-#     def delete_all_rules(self, rules):
-#         if rules is None or "data" not in rules:
-#             return None
+    def delete_all_rules(self, rules):
+        if rules is None or "data" not in rules:
+            return None
 
-#         ids = list(map(lambda rule: rule["id"], rules["data"]))
-#         payload = {"delete": {"ids": ids}}
-#         response = requests.post(
-#             "https://api.twitter.com/2/tweets/search/stream/rules",
-#             auth=self.bearer_oauth,
-#             json=payload
-#         )
-#         if response.status_code != 200:
-#             raise Exception(
-#                 "Cannot delete rules (HTTP {}): {}".format(
-#                     response.status_code, response.text
-#                 )
-#             )
-#         # print(json.dumps(response.json()))
+        ids = list(map(lambda rule: rule["id"], rules["data"]))
+        payload = {"delete": {"ids": ids}}
+        response = requests.post(
+            "https://api.twitter.com/2/tweets/search/stream/rules",
+            auth=self.bearer_oauth,
+            json=payload
+        )
+        if response.status_code != 200:
+            raise Exception(
+                "Cannot delete rules (HTTP {}): {}".format(
+                    response.status_code, response.text
+                )
+            )
+        # print(json.dumps(response.json()))
 
-#     def set_rule(self, item):
-#         rule = [{"value": "参戦ID {}".format(item), "tag": "JPN"}]
-#         payload = {"add": rule}
-#         response = requests.post(
-#             "https://api.twitter.com/2/tweets/search/stream/rules",
-#             auth=self.bearer_oauth,
-#             json=payload,
-#         )
-#         # print(response)
-#         if response.status_code != 201:
-#             raise Exception(
-#                 "Cannot add rules (HTTP {}): {}".format(
-#                 response.status_code, response.text,
-#                 )
-#             )
-#         # print(json.dumps(response.json()))
-#         return response.json()
+    def set_rule(self, item):
+        rule = [{"value": "参戦ID {}".format(item), "tag": "JPN"}]
+        payload = {"add": rule}
+        response = requests.post(
+            "https://api.twitter.com/2/tweets/search/stream/rules",
+            auth=self.bearer_oauth,
+            json=payload,
+        )
+        # print(response)
+        if response.status_code != 201:
+            raise Exception(
+                "Cannot add rules (HTTP {}): {}".format(
+                response.status_code, response.text,
+                )
+            )
+        # print(json.dumps(response.json()))
+        return response.json()
 
-#     def get_stream(self):
-#         response = requests.get(
-#             "https://api.twitter.com/2/tweets/search/stream",
-#             auth=self.bearer_oauth, stream=True,
-#         )
-#         # print(response.status_code)
-#         if response.status_code != 200:
-#             raise Exception(
-#                 "Cannot get stream (HTTP {}): {}".format(
-#                     response.status_code, response.text
-#                 )
-#             )
+    def get_stream(self):
+        response = requests.get(
+            "https://api.twitter.com/2/tweets/search/stream",
+            auth=self.bearer_oauth, stream=True,
+        )
+        # print(response.status_code)
+        if response.status_code != 200:
+            raise Exception(
+                "Cannot get stream (HTTP {}): {}".format(
+                    response.status_code, response.text
+                )
+            )
             
-#         for response_line in response.iter_lines():
-#             if response_line:
-#                 json_response = json.loads(response_line)
-#                 text = json_response['data']['text']
-#                 mark = text.find(':参戦ID')
-#                 raid_id = text[mark - 9:mark - 1]
-#                 value = raid_id
+        for response_line in response.iter_lines():
+            if response_line:
+                json_response = json.loads(response_line)
+                text = json_response['data']['text']
+                mark = text.find(':参戦ID')
+                raid_id = text[mark - 9:mark - 1]
+                value = raid_id
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
