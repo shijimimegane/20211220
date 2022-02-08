@@ -2,8 +2,18 @@
   <body>
     <!-- Set up your HTML here -->
     <input id="myinput" value="" />
+    
+    <a href="javascript:OnLinkClick();">Exec</a><br />
+    <br />
+    <div id="output"></div>
 
     <script>
+       function OnLinkClick() {
+         target = document.getElementById("output");
+         target.innerHTML = "Penguin";
+         return false;
+       }
+      
       // ----------------------------------------------------
       // Just copy/paste these functions as-is:
 
