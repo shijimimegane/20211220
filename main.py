@@ -9,6 +9,8 @@ from mycomponent import mycomponent
 value = mycomponent(my_input_value="hello there")
 st.write("Received", value)
 
+placeholder = st.empty()
+
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
   'Lv70 リヴァイアサン・マグナ',
@@ -188,7 +190,7 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
-        placeholder = st.empty()
+
         response = requests.get(
             "https://api.twitter.com/2/tweets/search/stream",
             auth=self.bearer_oauth, stream=True,
