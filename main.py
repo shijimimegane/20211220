@@ -13,7 +13,7 @@ document.execCommand('copy');
 """
 
 # Wrapt the javascript as html code
-my_html = f"<input id="myinput" value="" /><script>{my_js}</script>"
+my_html = f"<input id='myinput' value='' /><script>{my_js}</script>"
 
 # Execute your app
 
