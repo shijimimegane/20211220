@@ -6,10 +6,11 @@ from mycomponent import mycomponent
 
 x = "x"
 
-value = mycomponent(my_input_value=x)
-st.write("Received", value)
+
+# st.write("Received", value)
 
 placeholder = st.empty()
+placeholder.write(x)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -162,7 +163,8 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                
+                global x
+                x = raid_id
                 placeholder.write(raid_id)
 
 listener = Stream_Listener_V2()
@@ -182,5 +184,6 @@ target = st.selectbox(
 start_button = st.button('開始')
 
 if start_button:
+    value = mycomponent(my_input_value=x)
     listener.set_rule(target)
     listener.get_stream()
