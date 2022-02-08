@@ -6,19 +6,6 @@ from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-# Define your javascript
-my_js = """
-target = document.getElementById("myinput");
-target.select()
-document.execCommand('copy')
-"""
-
-# Wrapt the javascript as html code
-my_html = f"<script>{my_js}</script>"
-
-# Execute your app
-st.title("Javascript example")
-html(my_html)
 
 st.session_state.x = "x"
 
@@ -182,7 +169,6 @@ class Stream_Listener_V2(object):
                 st.session_state.x = raid_id
                 x = raid_id
                 placeholder.write(x)
-                html(my_html)
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
