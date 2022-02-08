@@ -1,8 +1,6 @@
 import requests
 import json
 import streamlit as st
-# import aiohttp
-# import asyncio
 import threading
 from mycomponent import mycomponent
 
@@ -86,53 +84,6 @@ class Stream_Listener_V2(object):
         self.bearer_token = st.secrets["bearer_token"]
         self.base_url = "https://api.twitter.com/2/tweets/search/stream"
         self.headers={"Authorization": f"Bearer {self.bearer_token}"}
-#         self.thread = threading.Thread(target=self.get_stream)
-#         self.thread.start()
-        
-#     async def reset_rules(self):
-#         async with aiohttp.ClientSession(headers=self.headers) as session:
-#             async with session.get(self.base_url+"/rules") as response:
-#                 async for line in response.content:
-#                     line = json.loads(line)
-
-#         if "data" not in line:
-#             print("None")
-#             return None
-
-#         payload = {"delete": {"ids": [line["data"][0]["id"]]}}
-
-#         async with aiohttp.ClientSession(headers=self.headers) as session:
-#             async with session.post(self.base_url+"/rules", json=payload) as response:
-#                 async for line in response.content:
-#                     print(line)
-
-#     async def set_rule(self, item):
-#         rule = [{"value": f"参戦ID {item}", "tag": "JPN"}]
-#         payload = {"add": rule}
-#         async with aiohttp.ClientSession(headers=self.headers) as session:
-#             async with session.post(self.base_url+"/rules", json=payload) as response:
-#                 async for line in response.content:
-#                     print(line)
-
-#     async def get_stream(self):
-#         async with aiohttp.ClientSession(headers=self.headers) as session:
-#             async with session.get(self.base_url) as response:
-#                 async for line in response.content:
-#                     if line == b'\r\n':
-#                         pass
-#                     else:
-#                         line = json.loads(line)["data"]["text"]
-#                         marker = line.find(':参戦ID')
-#                         raid_id = line[marker-9:marker-1]
-#                         st.write(raid_id)
-#                         Clipboard.copy(raid_id)
-#                         self.ids.b2.text = Clipboard.paste()
-
-        
-        
-#         rules = self.get_rules()
-#         self.delete_all_rules(rules)
-
     def bearer_oauth(self, r):
         r.headers["Authorization"] = f"Bearer {self.bearer_token}"
         r.headers["User-Agent"] = "v2FilteredStreamPython"
