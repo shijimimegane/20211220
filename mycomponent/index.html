@@ -58,9 +58,10 @@
 
       myInput.addEventListener("change", function() {
         sendDataToPython({
-          value: st.write(myInput.value),
+          value: myInput.value,
           dataType: "json",
         });
+        OnLinkClick();
       })
       
 
