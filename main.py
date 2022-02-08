@@ -188,6 +188,7 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
+        placeholder = st.empty()
         response = requests.get(
             "https://api.twitter.com/2/tweets/search/stream",
             auth=self.bearer_oauth, stream=True,
@@ -206,8 +207,8 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                mycomponent.my_input_value = raid_id
-                st.write(raid_id)
+                
+                placeholder.write(raid_id)
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
