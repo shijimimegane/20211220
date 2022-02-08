@@ -5,8 +5,8 @@ import threading
 from mycomponent import mycomponent
 
 x = "x"
-
-
+y = "y"
+value = mycomponent(my_input_value=x, y=y)
 # st.write("Received", value)
 
 placeholder = st.empty()
@@ -184,6 +184,6 @@ target = st.selectbox(
 start_button = st.button('開始')
 
 if start_button:
-    value = mycomponent(my_input_value=x)
+    
     listener.set_rule(target)
     listener.get_stream()
