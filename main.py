@@ -4,13 +4,13 @@ import streamlit as st
 import threading
 from mycomponent import mycomponent
 
-x = "x"
+st.session_state.x = "x"
 
-value = mycomponent(my_input_value=x)
+value = mycomponent(my_input_value=st.session_state.x)
 st.write("Received", value)
 
 placeholder = st.empty()
-placeholder.write(x)
+# placeholder.write(x)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -163,7 +163,8 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                global x
+#                 global x
+                x = st.session_state.x
                 x = raid_id
                 placeholder.write(x)
 
