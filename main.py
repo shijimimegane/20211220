@@ -206,9 +206,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                global value
-                value = raid_id
-                value.my_input_value = raid_id
+                mycomponent.my_input_value = raid_id
                 st.write(raid_id)
 
 listener = Stream_Listener_V2()
