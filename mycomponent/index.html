@@ -9,9 +9,11 @@
 
     <script>
        function OnLinkClick() {
-         target = document.getElementById("output");
-         target.innerHTML = "Penguin";
-         return false;
+         target = document.getElementById("myinput");
+         target.select()
+//          target.innerHTML = "Penguin";
+//          return false;
+         Document.execCommand('copy')
        }
       
       // ----------------------------------------------------
