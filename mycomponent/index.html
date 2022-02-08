@@ -61,15 +61,13 @@
       // ----------------------------------------------------
       // Now modify this part of the code to fit your needs:
 
-      var myInput = document.getElementById("myinput");
-      var mytext = myInput.value
-      
+      var myInput = document.getElementById("myinput");      
       
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
-        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!        
+        myInput.value = event.data.args.my_input_value*2;  // Access values sent from Python here!        
       }
       
 
@@ -84,7 +82,6 @@
       // Hook things up!
       window.addEventListener("message", onDataFromPython);
       init();
-      navigator.clipboard.writeText(myInput.value);
 
       // Hack to autoset the iframe height.
       window.addEventListener("load", function() {
