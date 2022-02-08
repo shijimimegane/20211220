@@ -52,14 +52,13 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
-        OnLinkClick();
-  
+          
       }
       
 
       myInput.addEventListener("change", function() {
         sendDataToPython({
-          value: myInput.value,
+          value: st.write(myInput.value),
           dataType: "json",
         });
       })
