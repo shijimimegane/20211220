@@ -84,7 +84,7 @@ class Stream_Listener_V2(object):
         self.bearer_token = st.secrets["bearer_token"]
         self.base_url = "https://api.twitter.com/2/tweets/search/stream"
         self.headers={"Authorization": f"Bearer {self.bearer_token}"}
-        asyncio.run(self.get_stream())
+        self.thread = threading.Thread(target=self.get_stream)
         
     async def reset_rules(self):
         async with aiohttp.ClientSession(headers=self.headers) as session:
