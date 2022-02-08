@@ -5,9 +5,9 @@ import threading
 from mycomponent import mycomponent
 
 x = "x"
-y = "y"
-value = mycomponent(my_input_value=x, y=y)
-# st.write("Received", value)
+
+value = mycomponent(my_input_value=x)
+st.write("Received", value)
 
 placeholder = st.empty()
 placeholder.write(x)
@@ -165,7 +165,7 @@ class Stream_Listener_V2(object):
                 raid_id = text[mark - 9:mark - 1]
                 global x
                 x = raid_id
-                placeholder.write(raid_id)
+                placeholder.write(x)
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
