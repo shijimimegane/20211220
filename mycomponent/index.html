@@ -6,8 +6,26 @@
     <a href="javascript:OnLinkClick();">Exec</a><br />
     <br />
     <div id="output"></div>
+    
+    <textarea id="textArea">We are learning to copy text to clipboard in JavaScript.</textarea>
+
+    <button id="btn" onclick="copyToClickBoard()">Copy</button>
 
     <script>
+      
+      function copyToClickBoard(){
+        var content = document.getElementById('textArea').innerHTML;
+
+        navigator.clipboard.writeText(content)
+          .then(() => {
+          console.log("Text copied to clipboard...")
+        })
+          .catch(err => {
+          console.log('Something went wrong', err);
+        })
+        
+      }
+      
        function OnLinkClick() {
          target = document.getElementById("myinput");
          target.value.select()
