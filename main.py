@@ -5,7 +5,7 @@ import threading
 from mycomponent import mycomponent
 
 x = "x"
-y = "y"
+y = st.empty()
 value = mycomponent(my_input_value=x, y=y)
 # st.write("Received", value)
 
