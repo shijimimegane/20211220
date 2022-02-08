@@ -62,6 +62,7 @@
       // Now modify this part of the code to fit your needs:
 
       var myInput = document.getElementById("myinput");
+      var mytext = myInput.value
       
       
       // data is any JSON-serializable value you sent from Python,
@@ -78,7 +79,7 @@
           value: myInput.value,
           dataType: "json",
         });
-        navigator.clipboard.writeText("<empty clipboard>");
+        print(mytext);
       })
       
 
