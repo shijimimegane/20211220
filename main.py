@@ -208,7 +208,7 @@ class Stream_Listener_V2(object):
                 raid_id = text[mark - 9:mark - 1]
                 global value
                 value = raid_id
-                value = mycomponent(my_input_value=raid_id)
+                value.my_input_value = raid_id
                 st.write(raid_id)
 
 listener = Stream_Listener_V2()
