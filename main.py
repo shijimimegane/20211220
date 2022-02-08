@@ -6,8 +6,8 @@ from mycomponent import mycomponent
 
 st.session_state.x = "x"
 
-value = mycomponent(my_input_value=st.session_state.x)
-st.write("Received", value)
+st.session_state.value = mycomponent(my_input_value=st.session_state.x)
+st.write("Received", st.session_state.value)
 
 placeholder = st.empty()
 # placeholder.write(x)
