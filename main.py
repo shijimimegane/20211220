@@ -121,7 +121,7 @@ class Stream_Listener_V2(object):
                         line = json.loads(line)["data"]["text"]
                         marker = line.find(':参戦ID')
                         raid_id = line[marker-9:marker-1]
-                        print(raid_id)
+                        st.write(raid_id)
 #                         Clipboard.copy(raid_id)
 #                         self.ids.b2.text = Clipboard.paste()
 
