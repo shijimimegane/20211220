@@ -4,7 +4,9 @@ import streamlit as st
 import threading
 from mycomponent import mycomponent
 
-value = mycomponent(my_input_value="hello there")
+x = "x"
+
+value = mycomponent(my_input_value=x)
 st.write("Received", value)
 
 placeholder = st.empty()
