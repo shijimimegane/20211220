@@ -2,6 +2,7 @@ import requests
 import json
 import streamlit as st
 import threading
+import pyperclip
 # from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
@@ -167,6 +168,7 @@ class Stream_Listener_V2(object):
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
+                pyperclip.copy(raid_id)
                 elem = f'<input id="myinput" value="{raid_id}" />'
                 html_strings = elem + copy_script
                 html(html_strings)
