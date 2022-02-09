@@ -161,40 +161,9 @@ class Stream_Listener_V2(object):
                 json_response = json.loads(response_line)
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
-                raid_id = text[mark - 9:mark - 1]
-                
-                elem = f'<input id="myinput" value="{raid_id}" />'
-                
-                copy_script = """
-                    <script>
-                        function sendMessageToStreamlitClient(type, data) {
-                          var outData = Object.assign({
-                            isStreamlitMessage: true,
-                            type: type,
-                          }, data);
-                          window.parent.postMessage(outData, "*");
-                        }
+                raid_id = text[mark - 9:mark - 1]                                  
 
-                        function sendDataToPython(data) {
-                          sendMessageToStreamlitClient("streamlit:setComponentValue", data);
-                        }
-
-                        sendDataToPython({
-                """ + \
-                f'value: "{raid_id}",' + \
-                """
-                dataType: "json",
-                        });
-
-                        target = document.getElementById("myinput");
-                        target.select();
-                        document.execCommand('copy')
-                    </script>      
-                """
-                                  
-
-                html_strings = elem + copy_script
-                html(html_strings)
+                st.experimental_return()
                 
 
 
