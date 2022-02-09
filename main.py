@@ -9,7 +9,7 @@ from streamlit.components.v1 import html
 if 'key'not in st.session_state:
   st.session_state.key = 'pre'
 value = mycomponent(my_input_value=st.session_state.key)
-v = st_custom_input("y")
+v = st_custom_input(my_input_value="y")
 v.my_input_value = "x"
 
 
