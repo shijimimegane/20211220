@@ -6,104 +6,7 @@ import threading
 
 from streamlit.components.v1 import html
 
-st.session_state.x = "test"
 
-html_string = """
-<html>
-  <body>
-    <!-- Set up your HTML here -->
-""" + \
-    f'<input id="myinput" value="{st.session_state.x}" />'\
-+ \
-"""    
-    <a href="javascript:OnLinkClick();">Exec</a><br />
-    <br />
-    <div id="output"></div>
-
-
-    <script>
-      // ----------------------------------------------------
-      // Just copy/paste these functions as-is:
-
-      function sendMessageToStreamlitClient(type, data) {
-        var outData = Object.assign({
-          isStreamlitMessage: true,
-          type: type,
-        }, data);
-        window.parent.postMessage(outData, "*");
-      }
-
-      function init() {
-        sendMessageToStreamlitClient("streamlit:componentReady", {apiVersion: 1});
-      }
-
-      function setFrameHeight(height) {
-        sendMessageToStreamlitClient("streamlit:setFrameHeight", {height: height});
-      }
-
-      // The `data` argument can be any JSON-serializable value.
-      function sendDataToPython(data) {
-        sendMessageToStreamlitClient("streamlit:setComponentValue", data);
-      }
-
-      // ----------------------------------------------------
-      // Now modify this part of the code to fit your needs:
-      
-                
-      function OnLinkClick() {
-        target = document.getElementById("myinput");
-        target.select()
-        document.execCommand('copy')
-      }
-      
-
-      var myInput = document.getElementById("myinput");   
-      
-      
-      // data is any JSON-serializable value you sent from Python,
-      // and it's already deserialized for you.
-      function onDataFromPython(event) {
-        if (event.data.type !== "streamlit:render") return;
-        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
-          
-      }
-      
-
-      myInput.addEventListener("change", function() {
-        sendDataToPython({
-          value: myInput.value,
-          dataType: "json",
-        });
-        OnLinkClick();
-      })
-      
-
-      // Hook things up!
-      window.addEventListener("message", onDataFromPython);
-      init();
-
-      // Hack to autoset the iframe height.
-      window.addEventListener("load", function() {
-        window.setTimeout(function() {
-          setFrameHeight(document.documentElement.clientHeight)
-        }, 0);
-      });
-
-      // Optionally, if the automatic height computation fails you, give this component a height manually
-      // by commenting out below:
-      //setFrameHeight(200);
-    </script>
-  </body>
-</html>
-"""
-html(html_string)
-
-
-# st.session_state.value = mycomponent(my_input_value=st.session_state.x)
-# st.write("Received", st.session_state.value)
-
-placeholder = st.empty()
-# placeholder.write(x)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -250,15 +153,25 @@ class Stream_Listener_V2(object):
                 )
             )
             
+        copy_script = """
+            <script>
+                target = document.getElementById("myinput");
+                target.select();
+                document.execCommand('copy');
+            </script>      
+        """
+            
         for response_line in response.iter_lines():
             if response_line:
                 json_response = json.loads(response_line)
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]
-                st.session_state.x = raid_id
-                x = raid_id
-                placeholder.write(x)
+                elem = f'<input id="myinput" value="{raid_id}" />'
+                html_strings = elem + copy_script
+                html(html_strings)
+                
+
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
