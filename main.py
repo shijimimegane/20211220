@@ -10,6 +10,8 @@ if 'key'not in st.session_state:
   st.session_state.key = 'pre'
 value = mycomponent(my_input_value=st.session_state.key)
 v = st_custom_input()
+v.my_input_value = "x"
+
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
