@@ -6,7 +6,7 @@ from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-if not st.session_state.key:
+if 'key'not in st.session_state:
   st.session_state.key = 'pre'
 value = mycomponent(my_input_value=st.session_state.key)
 
