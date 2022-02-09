@@ -12,8 +12,10 @@ html_string = """
 <html>
   <body>
     <!-- Set up your HTML here -->
-    <input id="myinput" value="{}" />
-    
+""" + \
+    f'<input id="myinput" value="{x}" />'\
++ \
+"""    
     <a href="javascript:OnLinkClick();">Exec</a><br />
     <br />
     <div id="output"></div>
@@ -93,7 +95,7 @@ html_string = """
     </script>
   </body>
 </html>
-""".format(x)
+"""
 html(html_string)
 st.session_state.x = "x"
 
