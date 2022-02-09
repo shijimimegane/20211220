@@ -2,11 +2,11 @@ import requests
 import json
 import streamlit as st
 
-# from mycomponent import mycomponent
+from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-
+value = myconponent(my_input_value='here')
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
