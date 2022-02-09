@@ -6,7 +6,9 @@ from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-st.session_state.value = mycomponent(my_input_value='here')
+if not st.session_state.key:
+  st.session_state.key = 'pre'
+value = mycomponent(my_input_value=st.session_state.key)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -161,7 +163,9 @@ class Stream_Listener_V2(object):
                 json_response = json.loads(response_line)
                 text = json_response['data']['text']
                 mark = text.find(':参戦ID')
-                raid_id = text[mark - 9:mark - 1]                                  
+                raid_id = text[mark - 9:mark - 1]  
+                
+                st.session_state.key = raid_id
 
                 st.experimental_rerun()
                 
