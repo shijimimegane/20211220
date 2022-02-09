@@ -155,9 +155,23 @@ class Stream_Listener_V2(object):
             
         copy_script = """
             <script>
+                function sendMessageToStreamlitClient(type, data) {
+                  var outData = Object.assign({
+                    isStreamlitMessage: true,
+                    type: type,
+                  }, data);
+                  window.parent.postMessage(outData, "*");
+                }
+                function sendDataToPython(data) {
+                  sendMessageToStreamlitClient("streamlit:setComponentValue", data);
+                }
+                sendDataToPython({
+                  value: myInput.value,
+                  dataType: "json",
+                });
                 target = document.getElementById("myinput");
                 target.select();
-                
+                document.execCommand('copy')
             </script>      
         """
             
