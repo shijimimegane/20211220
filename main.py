@@ -6,7 +6,8 @@ from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-
+html_string = '<input id="myinput" value="" />'
+html(html_string)
 st.session_state.x = "x"
 
 st.session_state.value = mycomponent(my_input_value=st.session_state.x)
