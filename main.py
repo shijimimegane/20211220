@@ -6,14 +6,14 @@ import threading
 
 from streamlit.components.v1 import html
 
-x = "test"
+st.session_state.x = "test"
 
 html_string = """
 <html>
   <body>
     <!-- Set up your HTML here -->
 """ + \
-    f'<input id="myinput" value="{x}" />'\
+    f'<input id="myinput" value="{st.session_state.x}" />'\
 + \
 """    
     <a href="javascript:OnLinkClick();">Exec</a><br />
@@ -97,7 +97,7 @@ html_string = """
 </html>
 """
 html(html_string)
-st.session_state.x = "x"
+
 
 # st.session_state.value = mycomponent(my_input_value=st.session_state.x)
 # st.write("Received", st.session_state.value)
