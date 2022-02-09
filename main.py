@@ -6,7 +6,7 @@ from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-value = mycomponent(my_input_value='here')
+value = st.session_state.mycomponent(my_input_value='here')
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -163,7 +163,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]                                  
 
-                st.experimental_return()
+                st.experimental_rerun()
                 
 
 
