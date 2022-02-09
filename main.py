@@ -6,7 +6,7 @@ from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
-value = st.session_state.mycomponent(my_input_value='here')
+st.session_state.value = mycomponent(my_input_value='here')
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
