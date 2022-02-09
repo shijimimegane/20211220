@@ -2,15 +2,14 @@ import requests
 import json
 import streamlit as st
 
-from mycomponent import mycomponent, st_custom_input
+from mycomponent import mycomponent
 
 from streamlit.components.v1 import html
 
 if 'key'not in st.session_state:
   st.session_state.key = 'pre'
 value = mycomponent(my_input_value=st.session_state.key)
-v = st_custom_input(input="y")
-v.my_input_value = "x"
+
 
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
