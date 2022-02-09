@@ -95,8 +95,8 @@ html_string = """
 html(html_string)
 st.session_state.x = "x"
 
-st.session_state.value = mycomponent(my_input_value=st.session_state.x)
-st.write("Received", st.session_state.value)
+# st.session_state.value = mycomponent(my_input_value=st.session_state.x)
+# st.write("Received", st.session_state.value)
 
 placeholder = st.empty()
 # placeholder.write(x)
