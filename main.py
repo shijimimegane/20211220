@@ -259,7 +259,6 @@ class Stream_Listener_V2(object):
                 st.session_state.x = raid_id
                 x = raid_id
                 placeholder.write(x)
-                html_string.script
 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
