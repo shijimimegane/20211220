@@ -144,32 +144,30 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
-
-        response = requests.get(
-            "https://api.twitter.com/2/tweets/search/stream",
-            auth=self.bearer_oauth, stream=True,
-        )
-        # print(response.status_code)
-        if response.status_code != 200:
-            raise Exception(
-                "Cannot get stream (HTTP {}): {}".format(
-                    response.status_code, response.text
-                )
+      
+        if 'res' not in st.session_state:          
+            st.session_state.res = requests.get(
+                "https://api.twitter.com/2/tweets/search/stream",
+                auth=self.bearer_oauth, stream=True,
             )
-            
+            # print(response.status_code)
+            if st.session_state.res.status_code != 200:
+                raise Exception(
+                    "Cannot get stream (HTTP {}): {}".format(
+                        st.session_state.res.status_code, st.session_state.res.text
+                    )
+                )      
 
+            for response_line in st.session_state.res.iter_lines():
+                if response_line:
+                    json_response = json.loads(response_line)
+                    text = json_response['data']['text']
+                    mark = text.find(':参戦ID')
+                    raid_id = text[mark - 9:mark - 1]  
 
-            
-        for response_line in response.iter_lines():
-            if response_line:
-                json_response = json.loads(response_line)
-                text = json_response['data']['text']
-                mark = text.find(':参戦ID')
-                raid_id = text[mark - 9:mark - 1]  
-                
-                st.session_state.key = raid_id
+                    st.session_state.key = raid_id
 
-                st.experimental_rerun()
+                    st.experimental_rerun()
                 
 
 
