@@ -46,7 +46,7 @@
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         
         myInput.select();
-        document.execCommand("copy");
+        navigator.clipboard.writeText(myInput.select());
       }
       
 
