@@ -69,14 +69,12 @@
         }, 0);
       });
       
-      const queryOpts = { name: 'clipboard-write', allowWithoutGesture: 'true' };
+      const queryOpts = { name: 'clipboard-write', allowWithoutGesture: 'True' };
       const permissionStatus = navigator.permissions.query(queryOpts);
 //       // Will be 'granted', 'denied' or 'prompt':
-      if ('permissions' in navigator) {
-          console.log(permissionStatus.state);
-      };
 
-//       console.log(permissionStatus.state);
+
+      console.log(permissionStatus.state);
            
 
       // Optionally, if the automatic height computation fails you, give this component a height manually
