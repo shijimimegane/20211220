@@ -47,7 +47,7 @@
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         myInput.select();
-        document.exeCommand('copy');
+        document.execCommand('copy');
       }
       
 
@@ -70,7 +70,7 @@
           setFrameHeight(document.documentElement.clientHeight)
         }, 0);
       });
-      OnLinkClick();
+     
 
       // Optionally, if the automatic height computation fails you, give this component a height manually
       // by commenting out below:
