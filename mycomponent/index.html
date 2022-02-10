@@ -31,11 +31,7 @@
       // Now modify this part of the code to fit your needs:
       
                 
-      function OnLinkClick() {
-        target = document.getElementById("myinput");
-        target.select()
-        document.execCommand("copy")
-      }
+
       
       const _event = new Event("change");
       
@@ -43,6 +39,11 @@
       
 
       var myInput = document.getElementById("myinput");   
+      
+      function OnLinkClick() {
+        myInput.select();
+        document.execCommand("copy");
+      }
       
       
       // data is any JSON-serializable value you sent from Python,
