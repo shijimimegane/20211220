@@ -5,6 +5,7 @@ import streamlit as st
 from mycomponent import mycomponent
 
 slot = st.empty()
+v = mycomponent(my_input_value="test")
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
