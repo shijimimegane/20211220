@@ -4,6 +4,8 @@ import streamlit as st
 
 from mycomponent import mycomponent
 
+slot = st.empty()
+
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
   'Lv70 リヴァイアサン・マグナ',
@@ -161,7 +163,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]  
 
-                value = mycomponent(key=st.session_state.key, my_input_value=raid_id)
+                slot.write(mycomponent(key=st.session_state.key, my_input_value=raid_id))
                 st.session_state.key += 1
 
                     
