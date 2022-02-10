@@ -5,7 +5,7 @@ import streamlit.components.v1 as components
 from mycomponent import mycomponent
 
 slot = st.empty()
-components.iframe("mycomponents/index.html")
+components.iframe("index.html")
 
 
 
