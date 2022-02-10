@@ -1,7 +1,7 @@
 import requests
 import json
 import streamlit as st
-import clipboard
+
 
 from mycomponent import mycomponent
 
@@ -10,7 +10,7 @@ from streamlit.components.v1 import html
 if 'key'not in st.session_state:
   st.session_state.key = 'pre'
 value = mycomponent(my_input_value=st.session_state.key)
-clipboard.copy(value)
+
 
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
@@ -188,7 +188,9 @@ target = st.selectbox(
 
 start_button = st.button('開始')
 
-if start_button:
-    
-    listener.set_rule(target)
-    listener.get_stream()
+if 'strated' not in st.session_state:
+  
+    if start_button:
+
+        listener.set_rule(target)
+        st.session_state.started = listener.get_stream()
