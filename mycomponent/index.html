@@ -52,8 +52,8 @@
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         
-//         myInput.select();
-//         document.execCommand("copy");
+        myInput.select();
+        document.execCommand("copy");
       }
       
 
@@ -78,7 +78,7 @@
       });
       
       
-      myInput.dispatchEvent(_event);
+//       myInput.dispatchEvent(_event);
       
      
 
