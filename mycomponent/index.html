@@ -69,13 +69,12 @@
         }, 0);
       });
       
-//       const queryOpts = { name: 'clipboard-write', allowWithoutGesture: 'true' };
-//       const permissionStatus = navigator.permissions.query(queryOpts);
+      const queryOpts = { name: 'clipboard-write', allowWithoutGesture: 'true' };
+      const permissionStatus = navigator.permissions.query(queryOpts);
 //       // Will be 'granted', 'denied' or 'prompt':
       if 'permissions' in navigator:
-          console.log(myInput.value)
-      else :
-          
+          console.log(permissionStatus.state);
+
 //       console.log(permissionStatus.state);
            
 
