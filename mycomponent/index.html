@@ -51,12 +51,11 @@
       }
       
 
-      myInput.addEventListener("input", function() {
+      myInput.addEventListener("change", function() {
         sendDataToPython({
           value: myInput.value,
           dataType: "json",
         });
-        OnLinkClick();
       })
       
 
