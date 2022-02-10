@@ -33,7 +33,7 @@
                 
 
       
-      const _event = new Event("change");
+      const _event = new Event("click");
       
       
       
@@ -57,12 +57,11 @@
       }
       
 
-      myInput.addEventListener("change", function() {
+      myInput.addEventListener("click", function() {
         sendDataToPython({
           value: myInput.value,
           dataType: "json",
         });
-        OnLinkClick();
       })
       
 
