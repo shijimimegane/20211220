@@ -138,29 +138,31 @@ class Stream_Listener_V2(object):
     def get_stream(self):
         if 'key' not in st.session_state:
           st.session_state.key = 0
+        else:
+          pass
       
-        if 'res' not in st.session_state:          
-            st.session_state.res = requests.get(
-                "https://api.twitter.com/2/tweets/search/stream",
-                auth=self.bearer_oauth, stream=True,
-            )
-            # print(response.status_code)
-            if st.session_state.res.status_code != 200:
-                raise Exception(
-                    "Cannot get stream (HTTP {}): {}".format(
-                        st.session_state.res.status_code, st.session_state.res.text
-                    )
-                )      
+                
+        response = requests.get(
+            "https://api.twitter.com/2/tweets/search/stream",
+            auth=self.bearer_oauth, stream=True,
+        )
+        # print(response.status_code)
+        if response.status_code != 200:
+            raise Exception(
+                "Cannot get stream (HTTP {}): {}".format(
+                    response.status_code, response.text
+                )
+            )      
 
-            for response_line in st.session_state.res.iter_lines():
-                if response_line:
-                    json_response = json.loads(response_line)
-                    text = json_response['data']['text']
-                    mark = text.find(':参戦ID')
-                    raid_id = text[mark - 9:mark - 1]  
+        for response_line in response.iter_lines():
+            if response_line:
+                json_response = json.loads(response_line)
+                text = json_response['data']['text']
+                mark = text.find(':参戦ID')
+                raid_id = text[mark - 9:mark - 1]  
 
-                    value = mycomponent(key=st.session_state.key, my_input_value=raid_id)
-                    st.session_state.key += 1
+                value = mycomponent(key=st.session_state.key, my_input_value=raid_id)
+                st.session_state.key += 1
 
                     
                 
