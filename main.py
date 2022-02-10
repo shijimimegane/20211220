@@ -2,14 +2,7 @@ import requests
 import json
 import streamlit as st
 
-
 from mycomponent import mycomponent
-
-from streamlit.components.v1 import html
-
-
-
-
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
@@ -143,6 +136,8 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
+        if 'key' not in st.session_state:
+          st.session_state.key = 0
       
         if 'res' not in st.session_state:          
             st.session_state.res = requests.get(
@@ -164,7 +159,8 @@ class Stream_Listener_V2(object):
                     mark = text.find(':参戦ID')
                     raid_id = text[mark - 9:mark - 1]  
 
-                    value = mycomponent(my_input_value=raid_id)
+                    value = mycomponent(key=st.session_state.key, my_input_value=raid_id)
+                    st.session_state.key += 1
 
                     
                 
