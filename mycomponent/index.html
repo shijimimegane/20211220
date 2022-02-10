@@ -37,30 +37,7 @@
         document.execCommand('copy')
       }
       
-      var input = document.querySelector("input.myinput"); // select the input field 
-
-      function showpropval(val) { 
-          var selectedValues = getSelectValues(this); // get selected values 
-          input.value = test.join(','); // join them in a comma separated list 
-          input.select(); // select offscreen inputs text 
-          document.execCommand("copy"); // copy it 
-          this.focus(); // focus back on original, so we don't see any glitches 
-      } 
       
-      function getSelectValues(select) { 
-          var result = []; 
-          var options = select && select.options; 
-          var opt; 
-
-          for (var i=0, iLen=options.length; i<iLen; i++) { 
-           opt = options[i]; 
-
-           if (opt.selected) { 
-            result.push(opt.value || opt.text); 
-           } 
-          } 
-          return result; 
-      } 
       
 
       var myInput = document.getElementById("myinput");   
@@ -71,16 +48,17 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
-        showpropval(input)
+        
       }
       
 
-//       myInput.addEventListener("change", function() {
-//         sendDataToPython({
-//           value: myInput.value,
-//           dataType: "json",
-//         });
-//       })
+      myInput.addEventListener("change", function() {
+        sendDataToPython({
+          value: myInput.value,
+          dataType: "json",
+        });
+        OnLInkClicked();
+      })
       
 
       // Hook things up!
