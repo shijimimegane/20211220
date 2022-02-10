@@ -34,8 +34,10 @@
       function OnLinkClick() {
         target = document.getElementById("myinput");
         target.select()
-        document.execCommand('copy')
+        document.execCommand("copy")
       }
+      
+      const _event = new Event("change");
       
       
       
@@ -48,7 +50,7 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
-        
+        myInput.DispatchEvent(_event)
       }
       
 
