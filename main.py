@@ -1,11 +1,13 @@
 import requests
 import json
 import streamlit as st
-
+import streamlit.components.v1 as components
 from mycomponent import mycomponent
 
 slot = st.empty()
-v = mycomponent(my_input_value="test")
+components.iframe("mycomponents/index.html")
+
+
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
