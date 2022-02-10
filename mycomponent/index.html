@@ -47,16 +47,17 @@
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         myInput.select();
+        document.execCommand('copy');
        
       }
       
 
-      myInput.addEventListener("change", function() {
-        sendDataToPython({
-          value: myInput.value,
-          dataType: "json",
-        });
-      })
+//       myInput.addEventListener("change", function() {
+//         sendDataToPython({
+//           value: myInput.value,
+//           dataType: "json",
+//         });
+//       })
       
 
       // Hook things up!
@@ -69,7 +70,7 @@
           setFrameHeight(document.documentElement.clientHeight)
         }, 0);
       });
-      document.execCommand('copy');
+      
      
 
       // Optionally, if the automatic height computation fails you, give this component a height manually
