@@ -5,10 +5,7 @@ import streamlit as st
 import subprocess
 from mycomponent import mycomponent
 
-value = mycomponent(key=999,my_input_value="test")
 
-
-slot = st.empty()
 
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
@@ -145,6 +142,7 @@ class Stream_Listener_V2(object):
     def get_stream(self):
         if 'key' not in st.session_state:
           st.session_state.key = 0
+          slot = st.empty()
         else:
           pass
       
