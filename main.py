@@ -11,6 +11,7 @@ import subprocess
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
+subprocess.call(["Xvfb", ":1", "-screen", "0", "1024x768x24"])
 
 
 
