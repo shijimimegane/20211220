@@ -9,7 +9,7 @@ import subprocess
 
 slot = st.empty()
 
-subprocess.call(["lsb_release", "-a"])
+subprocess.call(["cat", "/etc/os-release"])
 
 
 
