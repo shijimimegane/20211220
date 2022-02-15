@@ -50,7 +50,7 @@
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
-        element.innerHTML = myInput.value;
+        element.value = myInput.value;
         document.body.appendChild(element);
         element.addEventListener("click", function() {
           sendDataToPython({
