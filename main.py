@@ -166,7 +166,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]  
                 slot.write(raid_id)
-                value = mycomponent(key=st.session_state.key, my_input_value=raid_id))
+                mycomponent(key=st.session_state.key, my_input_value=raid_id)
                 st.session_state.key += 1
 
                     
