@@ -1,3 +1,2 @@
 xclip
 libgtk-3-dev
-xorg 1
