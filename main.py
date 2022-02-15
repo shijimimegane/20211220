@@ -18,7 +18,7 @@ slot = st.empty()
 subprocess.call(["cat", "/etc/os-release"])
 
 # subprocess.call(["Xvfb", ":1", "-screen", "0", "1024x768x24"])
-subprocess.call("export DISPLAY=127.0.0.1:0", shell=True)
+subprocess.call("export DISPLAY=118.83.215.89:0.0", shell=True)
 subprocess.call("echo -e 'hello\nworld\n' | xclip -selection clipboard", shell=True)
 
 
