@@ -52,7 +52,18 @@
         element.id = String(event.data.args.key);
         element.innerHTML = "tes";
         document.body.appendChild(element);
-      }
+        element.addEventListener("click", function() {
+          sendDataToPython({
+            value: add.value,
+            dataType: "json",
+          });
+          element.select();
+          document.execCommand("copy");
+        });
+        if (i == 0) {
+          element.click();
+        };
+      };
       
 //       add.addEventListener("click", function() {
 //         sendDataToPython({
