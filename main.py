@@ -15,8 +15,8 @@ subprocess.call(["cat", "/etc/os-release"])
 
 bt = st.button('test')
 if bt:
-  display = Display(visible=False, size=(1280, 1024))
-  display.start()
+  st.session_state.display = Display(visible=False, size=(1280, 1024))
+  st.session_state.display.start()
   pyperclip.copy("HELLO!! WORLD!!")
 # print(pyperclip.paste())
 
