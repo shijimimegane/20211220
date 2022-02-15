@@ -16,7 +16,7 @@ subprocess.call(["cat", "/etc/os-release"])
 
 bt = st.button('test')
 if bt:
-  print(os.environ["DISPLAY"])
+  os.environ["DISPLAY"] = 0:0
   display = Display(visible=False, backend="xvfb")
   display.start()
 #   pyperclip.copy("HELLO!! WORLD!!")
