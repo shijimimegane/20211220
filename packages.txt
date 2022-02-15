@@ -1,2 +1,3 @@
 xclip
 libx11-dev
+xorg-x11-server-Xvfb
