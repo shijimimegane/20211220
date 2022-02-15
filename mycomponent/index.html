@@ -35,22 +35,21 @@
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
-        if (event.data.type !== "streamlit:render") return;      
+        if (event.data.type !== "streamlit:render") return;     
         
-        var input = event.data.args.my_input_value;  // Access values sent from Python here!
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
-        element.value = input;
+        element.value = event.data.args.my_input_value;  // Access values sent from Python here!
         document.body.appendChild(element);
-        element.addEventListener("click", function() {
-          sendDataToPython({
-            value: input,
-            dataType: "json",
-          });
-          element.select();
-          document.execCommand("copy");
-        });
+//         element.addEventListener("click", function() {
+//           sendDataToPython({
+//             value: input,
+//             dataType: "json",
+//           });
+//           element.select();
+//           document.execCommand("copy");
+//         });
         if (i == 0) {
           element.click();
           i += 1;
