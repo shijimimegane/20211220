@@ -140,9 +140,9 @@ class Stream_Listener_V2(object):
         return response.json()
 
     def get_stream(self):
+        slot = st.empty()
         if 'key' not in st.session_state:
           st.session_state.key = 0
-          slot = st.empty()
         else:
           pass
       
