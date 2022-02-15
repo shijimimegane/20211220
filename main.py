@@ -12,19 +12,14 @@ import socket
 value = mycomponent(my_input_value="test")
 st.write(value)
 
-host = socket.gethostname()
-ip = socket.gethostbyname(host)
-fqdn = socket.if_nameindex()
-st.write(ip)
-st.write(host)
-st.write(fqdn)
+
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
 
 # subprocess.call(["Xvfb", ":1", "-screen", "0", "1024x768x24"])
 subprocess.call("export DISPLAY=118.83.215.89:0", shell=True)
-subprocess.call("echo -e 'hello\nworld\n' | xclip -selection clipboard", shell=True)
+# subprocess.call("echo -e 'hello\nworld\n' | xclip -selection clipboard", shell=True)
 
 
 bt = st.button('test')
