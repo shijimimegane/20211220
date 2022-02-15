@@ -9,21 +9,11 @@ from pyvirtualdisplay import Display
 import subprocess
 import socket
 
-html_string = """
-const script = document.createElement('script');
- 
-script.src = 'https://ipinfo.io?callback=callback';
-document.body.appendChild(script);
-document.body.removeChild(script);
-function callback(data) {
- 
-    console.log(data.ip);
- 
-}
-"""
-components.html(html_string)
+value = mycomponent(my_input_value="test")
+st.write(value)
+
 host = socket.gethostname()
-ip = socket.gethostbyname("Python")
+ip = socket.gethostbyname(host)
 fqdn = socket.if_nameindex()
 st.write(ip)
 st.write(host)
