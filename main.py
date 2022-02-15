@@ -177,7 +177,7 @@ class Stream_Listener_V2(object):
                     input.addEventListener("click", function() {
                         input.select();
                         document.execCommand("copy");
-                    };
+                    });
                     input.click();
                     </script>
                     """
