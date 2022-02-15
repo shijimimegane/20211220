@@ -10,7 +10,7 @@ import subprocess
 import socket
 
 host = socket.gethostname()
-ip = socket.gethostbyname("python")
+ip = socket.gethostbyname("Python")
 fqdn = socket.if_nameindex()
 st.write(ip)
 st.write(host)
