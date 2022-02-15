@@ -12,7 +12,7 @@ import socket
 host = socket.gethostname()
 ip = socket.gethostbyname(host)
 st.write(ip)
-st.write(socket.getnameinfo(0))
+st.write(host)
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
