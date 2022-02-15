@@ -46,7 +46,11 @@
         if (event.data.type !== "streamlit:render") return;
         
         
-        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
+        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
+        
+        var element = document.createElement("div");
+        element.innerHTML = "tes";
+        document.body.appendChild(element);
 
         if (i == 0) {
           add.click();
