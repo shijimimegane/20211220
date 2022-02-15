@@ -8,7 +8,7 @@ from pyvirtualdisplay import Display
 
 slot = st.empty()
 
-
+!lsb_release -a
 
 
 
