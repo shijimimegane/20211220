@@ -10,7 +10,7 @@ import subprocess
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
-subprocess.call(["pip", "install", "streamlit", "--upgrade"])
+subprocess.call(["/home/appuser/venv/bin/python", "-m", "pip", "install", "--upgrade", "pip"])
 
 
 
