@@ -14,7 +14,7 @@ ip = socket.gethostbyname(host)
 fqdn = socket.getfqdn()
 st.write(ip)
 st.write(host)
-st.write(fqdn)
+st.write(socket.AF_INET)
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
