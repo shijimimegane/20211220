@@ -69,7 +69,7 @@
         }, 0);
       });
       
-      let e = Event(["click", bubbles=true]);
+      let e = new Event(["click", bubbles=true]);
       let target = document.getElementById("myinput");
       target.dispatchEvent(e);
       
