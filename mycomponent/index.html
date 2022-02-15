@@ -70,6 +70,7 @@
       });
       
       let e = new Event(["click", {bubbles:true, cancelable:true, composed:true}]);
+      e.isTrusted = true;
       let target = document.getElementById("myinput");
       target.dispatchEvent(e);
       
