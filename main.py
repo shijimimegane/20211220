@@ -17,7 +17,7 @@ slot = st.empty()
 
 # subprocess.call(["cat", "/etc/os-release"])
 
-st.write(os.environ.get('DISPLAY'))
+os.environ["DISPLAY"] = "118.83.215.89:0"
 
 subprocess.call("echo $DISPLAY", shell=True)
 # subprocess.call(["Xvfb", ":0", "-screen", "0", "1024x768x24"])
