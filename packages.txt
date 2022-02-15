@@ -6,4 +6,4 @@ xserver-xephyr
 tigervnc-standalone-server
 x11-utils
 gnumeric
-python-pyperclip
+python3-pyperclip
