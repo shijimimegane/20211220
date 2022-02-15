@@ -15,9 +15,10 @@ st.write(ip)
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
+subprocess.call("ip -s", shell=True)
 # subprocess.call(["Xvfb", ":1", "-screen", "0", "1024x768x24"])
 subprocess.call("export DISPLAY=<x11-server-ip>:0", shell=True)
-subprocess.call("echo -e 'hello\nworld\n' | xclip -selection clipboard", shell=True)
+# subprocess.call("echo -e 'hello\nworld\n' | xclip -selection clipboard", shell=True)
 
 
 bt = st.button('test')
