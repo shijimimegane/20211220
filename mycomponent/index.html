@@ -48,7 +48,8 @@
         
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
         
-        var element = document.createElement({"name": "input", "id": "add"});
+        var element = document.createElement("input");
+        element.id = String(event.data.args.key);
         element.innerHTML = "tes";
         document.body.appendChild(element);
       }
