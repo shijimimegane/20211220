@@ -19,7 +19,8 @@ if bt:
   print(os.environ["DISPLAY"])
   display = Display(visible=False, backend="xvfb")
   display.start()
-  pyperclip.copy("HELLO!! WORLD!!")
+#   pyperclip.copy("HELLO!! WORLD!!")
+  display.stop()
 # print(pyperclip.paste())
 
 # display.stop()
