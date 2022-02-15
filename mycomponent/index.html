@@ -29,7 +29,6 @@
       // ----------------------------------------------------
       // Now modify this part of the code to fit your needs:
       
-      
       var i = 0   
       
       // data is any JSON-serializable value you sent from Python,
@@ -53,6 +52,7 @@
         if (i == 0) {
           element.click();
           i += 1;
+          element.remove();
         };
       };
       
