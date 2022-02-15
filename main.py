@@ -11,10 +11,10 @@ import socket
 
 host = socket.gethostname()
 ip = socket.gethostbyname(host)
-fqdn = socket.getfqdn()
+fqdn = socket.getaddrinfo()
 st.write(ip)
 st.write(host)
-st.write(socket.AF_INET6)
+st.write(fqdn)
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
