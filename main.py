@@ -11,8 +11,10 @@ import socket
 
 host = socket.gethostname()
 ip = socket.gethostbyname(host)
+fqdn = socket.getfqdn()
 st.write(ip)
 st.write(host)
+st.write(fqdn)
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
