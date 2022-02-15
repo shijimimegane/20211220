@@ -44,7 +44,7 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
-        
+        myInput.click();
         
       }
       
@@ -69,7 +69,7 @@
         }, 0);
       });
       
-      myInput.click();
+      
       
 //       let e1 = new Event("click");
 //       let e0 = new Event("mouse")
