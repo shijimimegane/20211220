@@ -11,7 +11,7 @@ import socket
 
 host = socket.gethostname()
 ip = socket.gethostbyname(host)
-fqdn = socket.getaddrinfo("http", 80)
+fqdn = socket.getaddrinfo(host, 80)
 st.write(ip)
 st.write(host)
 st.write(fqdn)
