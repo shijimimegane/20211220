@@ -33,25 +33,19 @@
 
       var myInput = document.getElementById("myinput");
       
-      var i = 0
-//       function OnLinkClick() {
-//         myInput.select();
-//         document.execCommand("copy");
-//       }
-      
+      var i = 0   
       
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
-        if (event.data.type !== "streamlit:render") return;
-        
+        if (event.data.type !== "streamlit:render") return;      
         
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
         element.value = myInput.value;
-        document.body.appendChild(element);
+//         document.body.appendChild(element);
         element.addEventListener("click", function() {
           sendDataToPython({
             value: element.value,
