@@ -1,4 +1,1 @@
-pillow
-EasyProcess
-pyvirtualdisplay
-pyperclip
+
