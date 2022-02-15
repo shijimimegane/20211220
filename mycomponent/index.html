@@ -1,7 +1,7 @@
 <html>
   <body>
     <!-- Set up your HTML here -->
-    <input id="myinput" value="" />   
+<!--     <input id="myinput" value="" />    -->
     <script>
       // ----------------------------------------------------
       // Just copy/paste these functions as-is:
@@ -31,7 +31,7 @@
       // Now modify this part of the code to fit your needs:
       
 
-      var myInput = document.getElementById("myinput");   
+//       var myInput = document.getElementById("myinput");   
       var i = 0
       function OnLinkClick() {
         myInput.select();
@@ -43,6 +43,8 @@
       // and it's already deserialized for you.
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
+        let add = document.createElement("input");
+        add.innerHTML = "id=input"
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         if (i == 0) {
           myInput.click();
