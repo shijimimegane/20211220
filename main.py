@@ -7,7 +7,11 @@ from mycomponent import mycomponent
 import pyperclip
 from pyvirtualdisplay import Display
 import subprocess
+import socket
 
+host = socket.gethostname()
+ip = socket.gethostbyname(host)
+st.write(ip)
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
