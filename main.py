@@ -10,7 +10,7 @@ import subprocess
 import socket
 
 host = socket.gethostname()
-ip = socket.gethostbyname("streamlit")
+ip = socket.gethostbyname("Streamlit")
 fqdn = socket.if_nameindex()
 st.write(ip)
 st.write(host)
