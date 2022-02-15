@@ -7,7 +7,7 @@ from mycomponent import mycomponent
 
 value = mycomponent(my_input_value="test")
 st.write(value)
-subprocess.call("/home/appuser/venv/bin/python -m pip install --upgrade pip", shell=True)
+
 
 slot = st.empty()
 
