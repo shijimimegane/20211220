@@ -9,7 +9,7 @@ import streamlit.components.v1 as components
 t = mycomponent(my_input_value="a")
 st.write(t)
 if not t:
-  st.write(t * 2)
+  st.write(t)
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
