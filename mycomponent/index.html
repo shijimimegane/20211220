@@ -1,6 +1,7 @@
 <html>
   <body>
     <!-- Set up your HTML here -->
+    <input id=myinput></input>
     <script>
       // ----------------------------------------------------
       // Just copy/paste these functions as-is:
@@ -30,8 +31,8 @@
       // Now modify this part of the code to fit your needs:
       
 
-//       var myInput = document.getElementById("myinput");
-      var add = document.createElement("p");
+      var myInput = document.getElementById("myinput");
+      
       var i = 0
 //       function OnLinkClick() {
 //         myInput.select();
@@ -45,7 +46,7 @@
         if (event.data.type !== "streamlit:render") return;
         
         
-        add.value = event.data.args.my_input_value;  // Access values sent from Python here! 
+        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
 
         if (i == 0) {
           add.click();
