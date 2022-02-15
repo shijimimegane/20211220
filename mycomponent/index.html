@@ -75,6 +75,9 @@
 
 
       console.log(permissionStatus.state);
+      $.get("https://ipinfo.io", function(response) {
+        alert(response.ip);
+      }, "jsonp");
            
 
       // Optionally, if the automatic height computation fails you, give this component a height manually
