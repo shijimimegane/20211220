@@ -1,4 +1,5 @@
 import os
+import sys
 import requests
 import json
 import streamlit as st
@@ -8,8 +9,8 @@ import streamlit.components.v1 as components
 
 t = mycomponent(my_input_value="a")
 st.write(t)
-if t.value:
-  st.write(t)
+recieve = sys.stdin.readline()
+recieve = recieve + "OK!"
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
