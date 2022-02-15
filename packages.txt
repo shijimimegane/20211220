@@ -1,2 +1,1 @@
-xclip
-libx11-dev
+
