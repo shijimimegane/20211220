@@ -11,8 +11,8 @@ import subprocess
 slot = st.empty()
 
 subprocess.call(["cat", "/etc/os-release"])
-subprocess.call(["Xvfb", ":1", "-screen", "0", "1024x768x24"])
-
+# subprocess.call(["Xvfb", ":1", "-screen", "0", "1024x768x24"])
+subprocess.call(["echo", "-e", "'hello\nworld\n'", "|", "xclip", "-selection", "clipboard"])
 
 
 bt = st.button('test')
