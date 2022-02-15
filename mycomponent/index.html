@@ -32,7 +32,10 @@
       
       
       function buttonClicked(event) {
-        alert("Clicked")
+        sendDataToPython({
+            value: "Clicked",
+            dataType: "json",
+        });
       };
       
        
