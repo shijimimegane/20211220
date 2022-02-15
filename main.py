@@ -5,10 +5,11 @@ import streamlit.components.v1 as components
 from mycomponent import mycomponent
 import pyperclip
 from pyvirtualdisplay import Display
+import subprocess
 
 slot = st.empty()
 
-!lsb_release -a
+subprocess("lsb_release -a")
 
 
 
