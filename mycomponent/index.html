@@ -1,7 +1,6 @@
 <html>
   <body>
     <!-- Set up your HTML here -->
-    <input id=myinput></input>
     <script>
       // ----------------------------------------------------
       // Just copy/paste these functions as-is:
@@ -30,8 +29,6 @@
       // ----------------------------------------------------
       // Now modify this part of the code to fit your needs:
       
-
-      var myInput = document.getElementById("myinput");
       
       var i = 0   
       
@@ -40,15 +37,15 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;      
         
-        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here!
+        var input = event.data.args.my_input_value;  // Access values sent from Python here!
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
-        element.value = myInput.value;
+        element.value = input;
         document.body.appendChild(element);
         element.addEventListener("click", function() {
           sendDataToPython({
-            value: element.value,
+            value: input,
             dataType: "json",
           });
           element.select();
