@@ -43,20 +43,22 @@
       function onDataFromPython(event) {
         if (event.data.type !== "streamlit:render") return;
         let add = document.createElement("input");
-        add.innerHTML = "id=input"
+        
         add.value = event.data.args.my_input_value;  // Access values sent from Python here! 
-        add.addEventListener("click", function() {
-          sendDataToPython({
-            value: add.value,
-            dataType: "json",
-          });
-          //         OnLinkClick();
-        })
+
         if (i == 0) {
           add.click();
           i += 1;
         }
       }
+      
+      add.addEventListener("click", function() {
+        sendDataToPython({
+          value: add.value,
+          dataType: "json",
+        });
+        //         OnLinkClick();
+      })
       
 
 
