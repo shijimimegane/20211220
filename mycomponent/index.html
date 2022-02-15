@@ -45,8 +45,7 @@
         if (event.data.type !== "streamlit:render") return;
         myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         
-        myInput.select();
-        navigator.clipboard.writeText(myInput.select());
+        
       }
       
 
@@ -55,6 +54,7 @@
           value: myInput.value,
           dataType: "json",
         });
+        OnLinkClik();
       })
       
 
@@ -68,6 +68,10 @@
           setFrameHeight(document.documentElement.clientHeight)
         }, 0);
       });
+      
+      let e = Event(["click", bubbles=True]);
+      let target = document.getElementById("myinput");
+      target.dispatchEvent(e);
       
 //       fetch('https://ipinfo.io?callback')
 //         .then(res => res.json())
