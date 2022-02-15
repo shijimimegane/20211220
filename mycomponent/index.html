@@ -50,11 +50,11 @@
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
-        element.innerHTML = "tes";
+        element.innerHTML = myInput.value;
         document.body.appendChild(element);
         element.addEventListener("click", function() {
           sendDataToPython({
-            value: add.value,
+            value: element.value,
             dataType: "json",
           });
           element.select();
