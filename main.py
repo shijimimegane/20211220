@@ -6,7 +6,17 @@ from mycomponent import mycomponent
 
 slot = st.empty()
 
+from pyvirtualdisplay import Display
 
+display = Display(visible=False, size=(1280, 1024))
+display.start()
+
+import pyperclip
+
+pyperclip.copy("HELLO!! WORLD!!")
+print(pyperclip.paste())
+
+display.stop()
 
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
