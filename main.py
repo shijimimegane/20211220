@@ -5,8 +5,7 @@ import streamlit as st
 import subprocess
 from mycomponent import mycomponent
 
-value = mycomponent(my_input_value="test")
-st.write(value)
+value = mycomponent(key=999,my_input_value="test")
 
 
 slot = st.empty()
