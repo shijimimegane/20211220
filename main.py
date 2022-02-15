@@ -2,40 +2,14 @@ import os
 import requests
 import json
 import streamlit as st
-import streamlit.components.v1 as components
+
 from mycomponent import mycomponent
-import pyperclip
-from pyvirtualdisplay import Display
-import subprocess
-import socket
 
 value = mycomponent(my_input_value="test")
 st.write(value)
 
 
 slot = st.empty()
-
-# subprocess.call(["cat", "/etc/os-release"])
-
-os.environ["DISPLAY"] = "localhost:0"
-
-# subprocess.call("echo $DISPLAY", shell=True)
-# subprocess.call(["Xvfb", ":0", "-screen", "0", "1024x768x24"])
-# subprocess.call("export $DISPLAY=118.83.215.89:0.0", shell=True)
-# subprocess.call("xhost +118.83.215.89:0", shell=True)
-subprocess.call("echo -e 'hello\nworld\n' | xclip -selection clipboard", shell=True)
-
-
-bt = st.button('test')
-if bt:
-  os.environ["DISPLAY"] = "0:0"
-  display = Display(visible=False, backend="xvfb")
-  display.start()
-  pyperclip.copy("HELLO!! WORLD!!")
-  display.stop()
-# print(pyperclip.paste())
-
-# display.stop()
 
 
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
