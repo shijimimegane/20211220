@@ -33,10 +33,10 @@
 
 //       var myInput = document.getElementById("myinput");   
       var i = 0
-      function OnLinkClick() {
-        myInput.select();
-        document.execCommand("copy");
-      }
+//       function OnLinkClick() {
+//         myInput.select();
+//         document.execCommand("copy");
+//       }
       
       
       // data is any JSON-serializable value you sent from Python,
@@ -45,9 +45,9 @@
         if (event.data.type !== "streamlit:render") return;
         let add = document.createElement("input");
         add.innerHTML = "id=input"
-        myInput.value = event.data.args.my_input_value;  // Access values sent from Python here! 
+        add.value = event.data.args.my_input_value;  // Access values sent from Python here! 
         if (i == 0) {
-          myInput.click();
+          add.click();
           i += 1;
         }
       }
@@ -55,10 +55,10 @@
 
       myInput.addEventListener("click", function() {
         sendDataToPython({
-          value: myInput.value,
+          value: add.value,
           dataType: "json",
         });
-        OnLinkClick();
+//         OnLinkClick();
       })
       
 
