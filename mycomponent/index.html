@@ -32,13 +32,13 @@
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
-        if (event.data.type !== "streamlit:render") return;        
+        if (event.data.type !== "streamlit:render") return;       
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
         element.value = event.data.args.my_input_value;  // Access values sent from Python here!
-        navigator.clipboard.writeText(event.data.args.my_input_value)
-        });      
+        navigator.clipboard.writeText(event.data.args.my_input_value);
+              
       };      
 
       // Hook things up!
