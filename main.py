@@ -2,7 +2,7 @@ import requests
 import json
 import streamlit as st
 import subprocess
-import my_component
+from mycomponent import my_component
 import streamlit.components.v1 as components
 
 t = my_component(my_input_value="a")
