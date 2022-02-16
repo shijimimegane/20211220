@@ -1,4 +1,3 @@
-import os
 import requests
 import json
 import streamlit as st
@@ -168,27 +167,9 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]  
                 slot.write(raid_id)
-#                 mycomponent(key=st.session_state.key, my_input_value=raid_id)
+                mycomponent(key=st.session_state.key, my_input_value=raid_id)
                 st.session_state.key += 1
-                strings = f"<input id={st.session_state.key} value={raid_id}></input>" \
-                    + \
-                    f"<script>var input = document.getElementById({st.session_state.key})" \
-                    + \
-                    """
-                    input.addEventListener("click", function() {
-                        input.select();
-                        document.execCommand("copy");
-                    });
-                    input.click();
-                    </script>
-                    """
-                components.html(strings)
-                  
-
-                    
-                
-
-
+ 
 listener = Stream_Listener_V2()
 st.title('Search & Copy')
 
