@@ -5,10 +5,6 @@ import subprocess
 from mycomponent import mycomponent
 import streamlit.components.v1 as components
 
-t = mycomponent(my_input_value="a")
-st.write(t)
-
-
 dict_values = {'マグナN': ['Lv60 ティアマト・マグナ',
   'Lv80 コロッサス・マグナ',
   'Lv70 リヴァイアサン・マグナ',
