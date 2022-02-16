@@ -43,8 +43,7 @@
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
-        if (event.data.type !== "streamlit:render") return;     
-        
+        if (event.data.type !== "streamlit:render") return;        
         
         var element = document.createElement("input");
         element.id = String(event.data.args.key);
@@ -59,9 +58,7 @@
           document.execCommand("copy");
         });
         
-        element.click();
-        element.remove();
-        
+        element.click();        
       };
       
 //       add.addEventListener("click", function() {
@@ -71,10 +68,6 @@
 //         });
 //         //         OnLinkClick();
 //       })
-      
-
-
-      
 
       // Hook things up!
       window.addEventListener("message", onDataFromPython);
@@ -86,18 +79,6 @@
           setFrameHeight(document.documentElement.clientHeight)
         }, 0);
       });
-      
-      
-      
-//       let e1 = new Event("click");
-//       let e0 = new Event("mouse")
-//       let target = document.getElementById("myinput");
-//       target.dispatchEvent(e);
-      
-//       fetch('https://ipinfo.io?callback')
-//         .then(res => res.json())
-//         .then(json => console.log(json.ip))
-           
 
       // Optionally, if the automatic height computation fails you, give this component a height manually
       // by commenting out below:
