@@ -2,10 +2,10 @@ import requests
 import json
 import streamlit as st
 import subprocess
-from mycomponent import my_component
+from mycomponent import mycomponent
 import streamlit.components.v1 as components
 
-t = my_component(my_input_value="a")
+t = mycomponent(my_input_value="a")
 st.write(t)
 
 
@@ -167,7 +167,7 @@ class Stream_Listener_V2(object):
                 mark = text.find(':参戦ID')
                 raid_id = text[mark - 9:mark - 1]  
                 slot.write(raid_id)
-                my_component(key=st.session_state.key, my_input_value=raid_id)
+                mycomponent(key=st.session_state.key, my_input_value=raid_id)
                 st.session_state.key += 1
  
 listener = Stream_Listener_V2()
