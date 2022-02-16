@@ -1,7 +1,6 @@
 <html>
   <body>
     <!-- Set up your HTML here -->
-    <button onclick="buttonClicked()">開始</button>
     <script>
       // ----------------------------------------------------
       // Just copy/paste these functions as-is:
@@ -28,18 +27,8 @@
       }
 
       // ----------------------------------------------------
-      // Now modify this part of the code to fit your needs:
-      
-      
-      function buttonClicked(event) {
-        sendDataToPython({
-            value: "Clicked",
-            dataType: "json",
-        });
-      };
-      
-       
-      
+      // Now modify this part of the code to fit your needs:  
+     
       // data is any JSON-serializable value you sent from Python,
       // and it's already deserialized for you.
       function onDataFromPython(event) {
@@ -50,10 +39,10 @@
         element.value = event.data.args.my_input_value;  // Access values sent from Python here!
         document.body.appendChild(element);
         element.addEventListener("click", function() {
-//           sendDataToPython({
-//             value: "test",
-//             dataType: "json",
-//           });
+          sendDataToPython({
+            value: element.value,
+            dataType: "json",
+          });
           element.select();
           document.execCommand("copy");
         });
@@ -61,13 +50,6 @@
         element.click();        
       };
       
-//       add.addEventListener("click", function() {
-//         sendDataToPython({
-//           value: add.value,
-//           dataType: "json",
-//         });
-//         //         OnLinkClick();
-//       })
 
       // Hook things up!
       window.addEventListener("message", onDataFromPython);
